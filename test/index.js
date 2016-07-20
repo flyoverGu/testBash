@@ -42,7 +42,7 @@ $('#button').on('click', function() {
     var url = $('#input').val();
     $.getJSON('http://127.0.0.1:8877/slice?height=600&filePath=' + url + '', (list) => {
         console.log(list);
-        readImg(url, function(data, w, h) {
+        readImg(url.replace('/test', ''), function(data, w, h) {
             list.map(item => {
                 writeLine(data, w, h, item);
             });
