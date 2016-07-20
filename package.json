@@ -12,7 +12,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "sudo npm install"
+    "start": "sudo npm i && pm2 start pm2.json",
+    "restart": "pm2 kill && npm start"
   },
   "author": "",
   "license": "ISC"
