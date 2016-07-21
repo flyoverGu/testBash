@@ -6,15 +6,6 @@ start() {
     echo "*****启动完成"
 }
 
-installDevCentos() {
-    echo "安装依赖"
-    wget http://people.centos.org/tru/devtools-2/devtools-2.repo -O /etc/yum.repos.d/devtools-2.repo
-    yum install devtoolset-2-gcc devtoolset-2-binutils devtoolset-2-gcc-c++
-    scl enable devtoolset-2 bash
-    env CC=/opt/rh/devtoolset-2/root/usr/bin/gcc CXX=/opt/rh/devtoolset-2/root/usr/bin/g++
-    echo "安装依赖完成"
-}
-
 installDevMac() {
     echo "安装依赖"
     brew install pkg-config cairo libpng jpeg giflib
@@ -28,14 +19,12 @@ install() {
     read -p "选择一个数字1, 2? (默认是1)  " osNum
     [ -z "$osNum" ] && osNum=1
 
-    if [ "$osNum" == '1' ];then
-        installDevCentos
-    else
+    if [ "$osNum" == '2' ];then
         installDevMac
     fi
     
     echo "*****开始安装node module"
-    sudo npm install
+    npm install
     echo "*****完成安装node module"
     start
 }
