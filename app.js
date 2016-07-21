@@ -9,7 +9,7 @@ let app = http.createServer((req, res) => {
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
     let u = url.parse(req.url);
     // router
-    if (/^\/slice/i.test(u.path)) {
+    if (/^\/slicePic/i.test(u.path)) {
         try {
             let queryObj = {};
             queryObj = parseQuery(u.query);
